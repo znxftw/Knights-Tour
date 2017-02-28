@@ -16,20 +16,20 @@ def evalPossibilities(board,currentPos):
             possibleSquares.remove(i)
     checkBoard(board,possibleSquares)
     return possibleSquares
-
+#Remove possibility of already tread squares
 def checkBoard(board,possibleSquares):
     for i in deepcopy(possibleSquares):
         x,y=i
         if board[x][y] is True :
             possibleSquares.remove(i)
-
+#Return False if tour isn't complete.
 def boardComplete(board):
     for i in range(8):
         for j in range(8):
             if board[i][j] is False:
                 return False
     return True
-
+#Print the board with move order
 def printPath(board,currentPos,moveList):
     for i in range(8):
         for j in range(8):
